@@ -6,14 +6,13 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,
     minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
     <title>皮卡丘</title>
-    <link rel="stylesheet" href="./style.e308ff8e.css">
-    <script src="./style.e308ff8e.js"></script>
-</head>
+    <link rel="stylesheet" href="/style.e308ff8e.css">
+<script src="/style.e308ff8e.js"></script></head>
 
 <body>
     <div>
         <audio id="player" controls="controls" style="display:none;">
-            <source src="./pika.b0d28046.mp3">
+            <source src="/pika.b0d28046.mp3">
         </audio>
     </div>
     <div class="notes">不要摸我的鼻子,可以摸我的脸</div>
@@ -39,35 +38,33 @@
         <div class="face-left" onclick="callSound()"></div>
         <div class="face-right" onclick="callSound()"></div>
     </div>
-    <script>
-        document.addEventListener("mousemove", eyeMove);
+    <script>document.addEventListener("mousemove", eyeMove);
 
-        function eyeMove() {
-            var eye = document.querySelectorAll('.eye'); // 调用数组中的每个元素
+function eyeMove() {
+  var eye = document.querySelectorAll('.eye'); // 调用数组中的每个元素
 
-            eye.forEach(function (eye) {
-                // Element.getBoundingClientRect() 方法返回元素的大小及其相对于视口的位置
-                // 元素相对于窗口左边的距离  左边框的宽度
-                var x = eye.getBoundingClientRect().left + eye.clientLeft / 2;
-                var y = eye.getBoundingClientRect().top + eye.clientTop / 2; // pageX 鼠标指针的位置，相对于文档左边缘
-                // Math.atan2() 返回从原点(0,0)即左上角到(x,y)点的线段与x轴正方向之间的平面角度(弧度值)，也就是Math.atan2(y,x)
+  eye.forEach(function (eye) {
+    // Element.getBoundingClientRect() 方法返回元素的大小及其相对于视口的位置
+    // 元素相对于窗口左边的距离  左边框的宽度
+    var x = eye.getBoundingClientRect().left + eye.clientLeft / 2;
+    var y = eye.getBoundingClientRect().top + eye.clientTop / 2; // pageX 鼠标指针的位置，相对于文档左边缘
+    // Math.atan2() 返回从原点(0,0)即左上角到(x,y)点的线段与x轴正方向之间的平面角度(弧度值)，也就是Math.atan2(y,x)
 
-                var radian = Math.atan2(event.pageX - x, event.pageY - y);
-                var rot = radian * (180 / Math.PI) * -1 + 270; // 修改旋转角度
+    var radian = Math.atan2(event.pageX - x, event.pageY - y);
+    var rot = radian * (180 / Math.PI) * -1 + 270; // 修改旋转角度
 
-                eye.style.transform = 'rotate(' + rot + 'deg)';
-            });
-        }
+    eye.style.transform = 'rotate(' + rot + 'deg)';
+  });
+}
 
-        function callSound() {
-            var player = document.querySelector('#player');
-            var mouth = document.querySelector(".mouth-down");
-            console.log(".mouth-down");
-            console.log(mouth);
-            mouth.style.animation = "move-mouth 3s infinite";
-            player.play();
-        }
-    </script>
+function callSound() {
+  var player = document.querySelector('#player');
+  var mouth = document.querySelector(".mouth-down");
+  console.log(".mouth-down");
+  console.log(mouth);
+  mouth.style.animation = "move-mouth 3s infinite";
+  player.play();
+}</script>
 
 </body>
 
